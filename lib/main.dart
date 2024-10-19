@@ -16,29 +16,24 @@ void main() async {
     ],
   );
 
-
   AppConstance.token = await CacheHelper.getSecureData(key: KeyConstance.token);
+  AppConstance.onBoarding = await CacheHelper.getData(key: KeyConstance.onBoarding);
 
   /// ==========token for testing ===================///
   debugPrint("token ${AppConstance.token}");
-
+  debugPrint("onboarding ${AppConstance.onBoarding}");
 
   ///====== logic for start route ====///
   late String startRoutes;
-  // if (AppConstance.onBoarding != null && AppConstance.location != null) {
-    // todo : choose type delivery screen
-    // startRoutes = Routes.chooseTypeDeliveryScreen;
-
-    startRoutes = Routes.onBoardingScreen;
-/*  } else {
+  if (AppConstance.onBoarding != null) {
+    startRoutes = Routes.loginScreen;
+  } else {
     // todo : onBoarding
     startRoutes = Routes.onBoardingScreen;
-  }*/
-
+  }
 
   runApp(MyApp(
     appRouter: AppRouter(),
     startRoute: startRoutes,
   ));
 }
-

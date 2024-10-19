@@ -44,8 +44,8 @@ class CustomNetworkImage extends StatelessWidget {
               color: AppColors.blackColor, borderRadius: border, shape: shape),
         ),
       ),
-      errorWidget: (context, url, error) => SvgPicture.asset(
-        AppImages.logoImage,
+      errorWidget: (context, url, error) => Image.asset(
+        AppImages.enterTasksImage,
         color: Theme.of(context).primaryColor,
         height: height.h,
         width: width.w,

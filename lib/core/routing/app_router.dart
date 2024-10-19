@@ -13,14 +13,10 @@ class AppRouter {
         final int typeMap = data[KeyRouter.typeMapInMapScreenKey];
         return MaterialPageRoute(
             builder: (context) => MapScreen(typeMap: typeMap));*/
-      // case Routes.chooseTypeOfRegisterScreen:
-      //   final Map<String, dynamic>? data = arguments as Map<String, dynamic>?;
-      //   final bool? isLogOut = data?[KeyRouter.isLogOutInChooseTypeRegister];
-      //   return MaterialPageRoute(
-      //       builder: (context) => ChooseTypeOfRegisterScreen(
-      //             isLogOut: isLogOut ?? true,
-      //             isWallet: false,
-      //           ));
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+            builder: (context) => const LoginScreen(
+                ));
 
       default:
         return MaterialPageRoute(

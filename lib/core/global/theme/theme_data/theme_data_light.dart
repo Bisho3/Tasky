@@ -12,7 +12,6 @@ ThemeData getThemeDataLight() => ThemeData(
       textButtonTheme: _getTextButtonTheme(),
       switchTheme: _getSwitchTheme(),
       checkboxTheme: _getCheckboxTheme(),
-
     );
 
 AppBarTheme _getAppBarTheme() => AppBarTheme(
@@ -42,49 +41,49 @@ AppBarTheme _getAppBarTheme() => AppBarTheme(
     );
 
 TextTheme _getTextTheme() => TextTheme(
-    bodyLarge: TextStyle(
-      fontSize: AppDouble.thirty.sp,
-      fontWeight: FontWeight.w600,
-      color: AppColors.blackColor,
-    ),
-    labelSmall: TextStyle(
-        fontSize: AppDouble.ten.sp,
+      bodyLarge: TextStyle(
+        fontSize: AppDouble.twentyFour.sp,
+        fontWeight: FontWeight.w700,
         color: AppColors.blackColor,
-        fontWeight: FontWeight.w700),
-    bodyMedium: TextStyle(
-      fontSize: AppDouble.eighteen.sp,
-      color: AppColors.blackColor,
-    ),
-    displayMedium: TextStyle(
-      fontSize: AppDouble.eighteen.sp,
-      color: AppColors.blackColor,
-      fontWeight: FontWeight.w700,
-    ),
-    titleMedium: TextStyle(
-      fontSize: AppDouble.fourteen.sp,
-      fontWeight: FontWeight.w600,
-      color: AppColors.blackColor,
-      height: AppDouble.onePointThree,
-    ),
-    titleSmall: TextStyle(
-      fontSize: AppDouble.twelve.sp,
-      fontWeight: FontWeight.w400,
-      color: AppColors.blackColor,
-    ),
-    displaySmall: TextStyle(
-      fontSize: AppDouble.seven.sp,
-      fontWeight: FontWeight.w700,
-      color: AppColors.blackColor,
-    ),
-    bodySmall: TextStyle(
-      fontSize: AppDouble.sixteen.sp,
-      color: AppColors.blackColor,
-    ),
-    headlineMedium: TextStyle(
-      fontSize: AppDouble.twenty.sp,
-      color: AppColors.blackColor,
-      fontWeight: FontWeight.w700,
-    ));
+      ),
+      bodyMedium: TextStyle(
+        fontSize: AppDouble.eighteen.sp,
+        color: AppColors.foreignLightColor,
+        fontWeight: FontWeight.w700,
+      ),
+      bodySmall: TextStyle(
+        fontSize: AppDouble.fourteen.sp,
+        fontWeight: FontWeight.w400,
+        color: AppColors.darkGreyColor,
+      ),
+      // labelSmall: TextStyle(
+      //     fontSize: AppDouble.ten.sp,
+      //     color: AppColors.blackColor,
+      //     fontWeight: FontWeight.w700),
+
+      // titleMedium: TextStyle(
+      //   fontSize: AppDouble.fourteen.sp,
+      //   fontWeight: FontWeight.w600,
+      //   color: AppColors.blackColor,
+      //   height: AppDouble.onePointThree,
+      // ),
+      // titleSmall: TextStyle(
+      //   fontSize: AppDouble.twelve.sp,
+      //   fontWeight: FontWeight.w400,
+      //   color: AppColors.blackColor,
+      // ),
+      // displaySmall: TextStyle(
+      //   fontSize: AppDouble.seven.sp,
+      //   fontWeight: FontWeight.w700,
+      //   color: AppColors.blackColor,
+      // ),
+
+      // headlineMedium: TextStyle(
+      //   fontSize: AppDouble.twenty.sp,
+      //   color: AppColors.blackColor,
+      //   fontWeight: FontWeight.w700,
+      // ),
+    );
 
 InputDecorationTheme _getInputDecorationTheme() => InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(

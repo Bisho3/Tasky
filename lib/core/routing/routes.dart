@@ -5,7 +5,7 @@ class Routes {
 
 
   ///========= authentication ======///
-  static const String mapScreen = '/mapScreen';
+  static const String loginScreen = '/loginScreen';
 
 
 }

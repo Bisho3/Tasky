@@ -1,6 +1,6 @@
 class AppIcons {
-  static const String notificationIcon =
-      "lib/core/global/icons/notification.svg";
+  static const String arrowLeftIcon =
+      "lib/core/global/icons/arrow_left.svg";
 
 
 }
