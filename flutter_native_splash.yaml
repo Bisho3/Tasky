@@ -1,0 +1,14 @@
+flutter_native_splash:
+  color: "#5F33E1"
+  image: lib/core/global/images/tasky_png.png
+  android: true
+  ios: true
+  web: false
+
+
+  android_12:
+    image: F:\todo\lib\core\global\images\splash_logo_upper_twelve.png
+    color: "#5F33E1"
+    android: true
+    ios: true
+    web: false

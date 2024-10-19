@@ -1,0 +1,14 @@
+flutter_native_splash:
+  color: "#5F33E1"
+  image: lib/core/global/images/tasky_png.png
+  android: true
+  ios: true
+  web: false
+
+
+  android_12:
+    image: lib/core/global/images/splash_logo_white_mode.png
+    color: "#5F33E1"
+    android: true
+    ios: true
+    web: false

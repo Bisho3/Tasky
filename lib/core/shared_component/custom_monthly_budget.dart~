@@ -1,0 +1,10 @@
+import 'package:bsor3a/core/util/app_import.dart';
+
+class CustomMonthlyBudget extends StatelessWidget {
+  const CustomMonthlyBudget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
