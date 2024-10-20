@@ -99,3 +99,10 @@ export 'package:todo/account/presentation/component/profile/loading/loading_prof
 export 'package:todo/authentication/presentation/component/log_out/alert_dialog_log_out_component.dart';
 export 'package:todo/authentication/domain/entities/log_out/log_out.dart';
 export 'package:todo/authentication/data/model/log_out/log_out_model.dart';
+export 'package:todo/tasky_app/presentation/component/add_task/app_bar/add_task_app_bar_component.dart';
+export 'package:dotted_border/dotted_border.dart';
+export 'package:todo/tasky_app/presentation/component/add_task/add_image/add_image_component.dart';
+export 'package:image_picker/image_picker.dart';
+export 'package:todo/tasky_app/presentation/component/add_task/choose_take_img_sheet/choose_take_img_sheet_component.dart';
+export 'package:todo/tasky_app/presentation/controller/tasky_cubit.dart';
+export 'package:todo/tasky_app/presentation/component/add_task/image/image_component.dart';

@@ -6,6 +6,8 @@ class CustomDropDown extends StatelessWidget {
   final Function onChange;
   final String? initialValue;
   final String textHint;
+  final Color backgroundColor;
+  final bool wantFilled;
 
   const CustomDropDown({
     super.key,
@@ -14,6 +16,8 @@ class CustomDropDown extends StatelessWidget {
     required this.onChange,
     this.initialValue,
     required this.textHint,
+    this.backgroundColor = AppColors.foreignLightColor,
+    this.wantFilled = false,
   });
 
   @override
@@ -21,23 +25,51 @@ class CustomDropDown extends StatelessWidget {
     return DropdownButtonFormField(
       isExpanded: true,
       value: initialValue,
-      hint: Text(
-        textHint.toString(),
-        style: Theme.of(context).textTheme.labelSmall!.copyWith(
-              fontWeight: FontWeight.w400,
-            ),
+      hint: Padding(
+        padding: EdgeInsets.only(
+          left: AppDouble.eight.w,
+        ),
+        child: Text(
+          textHint.toString(),
+          style: wantFilled
+              ? Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(color: AppColors.primaryColor)
+              : Theme.of(context).textTheme.labelSmall!.copyWith(
+                    fontWeight: FontWeight.w400,
+                  ),
+        ),
       ),
-      dropdownColor: Theme.of(context).scaffoldBackgroundColor,
+      dropdownColor: backgroundColor,
       validator: validator,
       decoration: InputDecoration(
+        prefixIcon: Padding(
+          padding: EdgeInsets.only(
+            left: AppDouble.ten.w,
+          ),
+          child: SvgPicture.asset(AppIcons.priorityIcon),
+        ),
+        prefixIconConstraints: const BoxConstraints(
+          minWidth: 0,
+          minHeight: 0,
+        ),
+        filled: wantFilled,
+        fillColor: AppColors.roseColor,
+        errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: AppColors.redColor),
+            borderRadius: BorderRadius.circular(AppDouble.twelve)),
         disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.greyColor),
+            borderSide: BorderSide(
+                color: wantFilled ? AppColors.roseColor : AppColors.greyColor),
             borderRadius: BorderRadius.circular(AppDouble.twelve)),
         focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.greyColor),
+            borderSide: BorderSide(
+                color: wantFilled ? AppColors.roseColor : AppColors.greyColor),
             borderRadius: BorderRadius.circular(AppDouble.twelve)),
         enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColors.greyColor),
+            borderSide: BorderSide(
+                color: wantFilled ? AppColors.roseColor : AppColors.greyColor),
             borderRadius: BorderRadius.circular(AppDouble.twelve)),
         contentPadding: EdgeInsets.symmetric(
           horizontal: 1.sw > 600 ? 0.03.sw : 0.05.sw,
@@ -49,15 +81,29 @@ class CustomDropDown extends StatelessWidget {
           .map(
             (e) => DropdownMenuItem<String>(
               value: e,
-              child: Text(e.toString(),
-                  style: Theme.of(context).textTheme.labelSmall),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: AppDouble.ten.w,
+                ),
+                child: Text(
+                  e.toString(),
+                  style: wantFilled
+                      ? Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(color: AppColors.primaryColor)
+                      : Theme.of(context).textTheme.labelSmall!.copyWith(
+                            fontWeight: FontWeight.w400,
+                          ),
+                ),
+              ),
             ),
           )
           .toList(),
       icon: Icon(
-        Icons.expand_more_outlined,
+        wantFilled ? Icons.arrow_drop_down : Icons.expand_more_outlined,
         color: Theme.of(context).primaryColor,
-        size: AppDouble.fifteen.w,
+        size: wantFilled ? AppDouble.twentyFive.w : AppDouble.fifteen.w,
       ),
       style: Theme.of(context).textTheme.bodySmall,
       onChanged: (e) {

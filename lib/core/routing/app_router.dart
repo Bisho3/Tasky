@@ -1,4 +1,5 @@
 import 'package:todo/core/util/app_import.dart';
+import 'package:todo/tasky_app/presentation/screens/add_task/add_task_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -15,20 +16,23 @@ class AppRouter {
         final int typeMap = data[KeyRouter.typeMapInMapScreenKey];
         return MaterialPageRoute(
             builder: (context) => MapScreen(typeMap: typeMap));*/
-    ///======== authentication ========///
+
+      ///======== authentication ========///
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
 
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => RegisterScreen());
-///======== home ========///
+
+      ///======== home ========///
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (context) => HomeScreen());
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
+      case Routes.addTaskScreen:
+        return MaterialPageRoute(builder: (context) =>  AddTaskScreen());
 
-
-    ///======= profile ========///
+      ///======= profile ========///
       case Routes.profileScreen:
-        return MaterialPageRoute(builder: (context) => ProfileScreen());
+        return MaterialPageRoute(builder: (context) => const ProfileScreen());
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(

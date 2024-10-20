@@ -38,6 +38,10 @@ Future<bool> refreshToken() async {
     );
 
     if (refreshTokenResponse.statusCode == AppIntegers.twoHundred) {
+      CacheHelper.saveSecureData(
+        key: KeyConstance.token,
+        value: refreshTokenResponse.data['access_token'],
+      );
       AppConstance.token = refreshTokenResponse.data['access_token'];
       return true;
     } else {

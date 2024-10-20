@@ -26,6 +26,7 @@ import '../../authentication/domain/use_case/login/login_use_case.dart' as _i93;
 import '../../authentication/domain/use_case/sign_up/sign_up_use_case.dart'
     as _i862;
 import '../../authentication/presentation/controller/auth_cubit.dart' as _i607;
+import '../../tasky_app/presentation/controller/tasky_cubit.dart' as _i845;
 import '../util/app_import.dart' as _i903;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -39,6 +40,7 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    gh.factory<_i845.TaskyCubit>(() => _i845.TaskyCubit());
     gh.lazySingleton<_i442.BaseAccountRemoteDataSource>(
         () => _i442.AccountRemoteDataSource());
     gh.lazySingleton<_i155.BaseAuthRemoteDataSource>(
@@ -49,10 +51,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i171.AuthRepository(gh<_i903.BaseAuthRemoteDataSource>()));
     gh.lazySingleton<_i93.LoginUseCase>(
         () => _i93.LoginUseCase(gh<_i903.BaseAuthRepository>()));
-    gh.lazySingleton<_i862.SignUpUseCase>(
-        () => _i862.SignUpUseCase(gh<_i903.BaseAuthRepository>()));
     gh.lazySingleton<_i889.LogOutUseCase>(
         () => _i889.LogOutUseCase(gh<_i903.BaseAuthRepository>()));
+    gh.lazySingleton<_i862.SignUpUseCase>(
+        () => _i862.SignUpUseCase(gh<_i903.BaseAuthRepository>()));
     gh.lazySingleton<_i576.ProfileUseCase>(
         () => _i576.ProfileUseCase(gh<_i903.BaseAccountRepository>()));
     gh.factory<_i607.AuthCubit>(() => _i607.AuthCubit(

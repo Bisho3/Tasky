@@ -81,11 +81,11 @@ TextTheme _getTextTheme() => TextTheme(
       //   color: AppColors.blackColor,
       // ),
 
-      // headlineMedium: TextStyle(
-      //   fontSize: AppDouble.twenty.sp,
-      //   color: AppColors.blackColor,
-      //   fontWeight: FontWeight.w700,
-      // ),
+      headlineMedium: TextStyle(
+        fontSize: 19.sp,
+        color: AppColors.primaryColor,
+        fontWeight: FontWeight.w500,
+      ),
     );
 
 InputDecorationTheme _getInputDecorationTheme() => InputDecorationTheme(
