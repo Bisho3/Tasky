@@ -26,4 +26,14 @@ class AuthRepository extends BaseAuthRepository {
       return Left(ServerFailure(failure.errorMessageModel.statusMessage));
     }
   }
+
+  @override
+  Future<Either<Failure, LogOut>> logOut() async {
+    try {
+      final result = await _baseAuthRemoteDataSource.logOut();
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
+  }
 }

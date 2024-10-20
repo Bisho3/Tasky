@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:todo/authentication/domain/use_case/log_out/log_out_use_case.dart';
 import 'package:todo/core/util/app_import.dart';
 
 part 'auth_state.dart';
@@ -7,8 +8,10 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final LoginUseCase _loginUseCase;
   final SignUpUseCase _signUpUseCase;
+  final LogOutUseCase _logOutUseCase;
 
-  AuthCubit(this._loginUseCase, this._signUpUseCase) : super(const AuthState());
+  AuthCubit(this._loginUseCase, this._signUpUseCase, this._logOutUseCase)
+      : super(const AuthState());
 
   ///========= country dialog =========///
   void getCountryCode(String countryCode) {
@@ -91,6 +94,23 @@ class AuthCubit extends Cubit<AuthState> {
           registerState: BottomState.failure));
     }, (register) {
       emit(state.copyWith(registerState: BottomState.success));
+    });
+  }
+
+  ///================= logout =================///
+  Future<void> logOut() async {
+    emit(state.copyWith(
+      logoutState: BottomState.loading,
+    ));
+
+    final result = await _logOutUseCase.call(const NoParameters());
+    result.fold((failure) {
+      emit(state.copyWith(
+        logoutFailureMessage: failure.message,
+        logoutState: BottomState.failure,
+      ));
+    }, (success) {
+      emit(state.copyWith(logoutState: BottomState.success));
     });
   }
 }

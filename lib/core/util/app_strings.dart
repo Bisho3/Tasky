@@ -21,17 +21,41 @@ class AppStrings {
   static const String signUpHere = "Sign Up here";
   static const String passwordIsTooShort = "Password is too short";
 
+  static const String signUp = "Sign Up";
+  static const String name = "Name..";
+  static const String emptyName = "Empty Name";
+  static const String yearOfExperience = "Years of experience...";
+  static const String emptyYearOfExperience = "Empty Year of experience";
 
-static const String signUp = "Sign Up";
-static const String name = "Name..";
-static const String emptyName = "Empty Name";
-static const String yearOfExperience = "Years of experience...";
-static const String emptyYearOfExperience = "Empty Year of experience";
+  static const String chooseExperienceLevel = "Choose experience Level";
+  static const String emptyChooseExperienceLevel =
+      "Empty Choose experience Level";
+  static const String address = "Address..";
+  static const String emptyAddress = "Empty Address";
+  static const String accountHasBeenCreatedSuccessfully =
+      "The account has been created successfully";
+  static const String profile = "Profile";
+  static const String copied = "Copied";
+  static const String phone = "Phone";
 
-static const String chooseExperienceLevel = "Choose experience Level";
-static const String emptyChooseExperienceLevel = "Empty Choose experience Level";
-static const String address = "Address..";
-static const String emptyAddress = "Empty Address";
-static const String accountHasBeenCreatedSuccessfully = "The account has been created successfully";
-// static const String login = "Login";
+  static const String level = "Level";
+  static const String confirmLogout = "Confirm logout";
+  static const String areYouSureYouWantLogOut =
+      "Are you sure you want to log out?";
+  static const String cancel = "Cancel";
+  static const String signOut = "Sign Out";
+  static const String successfullySignOut = "Successfully Sign Out";
+  static const String myTasks = "My Tasks";
+  static const String all = "All";
+  static const String inProgress = "In Progress";
+  static const String waiting = "Waiting";
+  static const String finished = "Finished";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
+// static const String successfullySignOut = "Successfully Sign Out";
 }

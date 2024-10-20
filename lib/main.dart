@@ -17,15 +17,21 @@ void main() async {
   );
 
   AppConstance.token = await CacheHelper.getSecureData(key: KeyConstance.token);
-  AppConstance.onBoarding = await CacheHelper.getData(key: KeyConstance.onBoarding);
+  AppConstance.onBoarding =
+      await CacheHelper.getData(key: KeyConstance.onBoarding);
+  AppConstance.refreshToken =
+      await CacheHelper.getSecureData(key: KeyConstance.refreshToken);
 
   /// ==========token for testing ===================///
   debugPrint("token ${AppConstance.token}");
+  debugPrint("token ${AppConstance.refreshToken}");
   debugPrint("onboarding ${AppConstance.onBoarding}");
 
   ///====== logic for start route ====///
   late String startRoutes;
-  if (AppConstance.onBoarding != null) {
+  if (AppConstance.onBoarding != null && AppConstance.token != null) {
+    startRoutes = Routes.homeScreen;
+  } else if (AppConstance.onBoarding != null && AppConstance.token == null) {
     startRoutes = Routes.loginScreen;
   } else {
     // todo : onBoarding

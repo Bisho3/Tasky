@@ -34,13 +34,13 @@ class CountryComponent extends StatelessWidget {
               .labelMedium
               ?.copyWith(fontSize: AppDouble.twelve.sp),
           enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppColors.lightGreyColor),
+              borderSide: const BorderSide(color: AppColors.veryLightGreyColor),
               borderRadius: BorderRadius.circular(12)),
           focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppColors.lightGreyColor),
+              borderSide: const BorderSide(color: AppColors.veryLightGreyColor),
               borderRadius: BorderRadius.circular(12)),
           border: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppColors.lightGreyColor),
+              borderSide: const BorderSide(color: AppColors.veryLightGreyColor),
               borderRadius: BorderRadius.circular(12))),
     );
   }

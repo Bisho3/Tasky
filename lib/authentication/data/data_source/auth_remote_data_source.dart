@@ -5,6 +5,8 @@ abstract class BaseAuthRemoteDataSource {
   Future<SignUpModel> signUp(SignUpParameter parameter);
 
   Future<LoginModel> login(LoginParameter parameter);
+
+  Future<LogOutModel> logOut();
 }
 
 @LazySingleton(as: BaseAuthRemoteDataSource)
@@ -19,12 +21,12 @@ class AuthRemoteDataSource extends BaseAuthRemoteDataSource {
           "password": parameter.password,
         },
       );
-      if (response.statusCode == AppIntegers.twoHundred) {
+      if (response.statusCode == AppIntegers.twoHundredAndOne) {
         return LoginModel.fromJson(response.data);
       } else {
         throw handlerError(response: response.data);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       throw handlerError(response: e.response!);
     }
   }
@@ -48,7 +50,24 @@ class AuthRemoteDataSource extends BaseAuthRemoteDataSource {
       } else {
         throw handlerError(response: response.data);
       }
-    } on DioError catch (e) {
+    } on DioException catch (e) {
+      throw handlerError(response: e.response!);
+    }
+  }
+
+  @override
+  Future<LogOutModel> logOut() async {
+    try {
+      final response = await DioHelper.postData(
+        url: ApiConstance.logoutPath,
+        token: AppConstance.token,
+      );
+      if (response.statusCode == AppIntegers.twoHundredAndOne) {
+        return const LogOutModel();
+      } else {
+        throw handlerError(response: response.data);
+      }
+    } on DioException catch (e) {
       throw handlerError(response: e.response!);
     }
   }

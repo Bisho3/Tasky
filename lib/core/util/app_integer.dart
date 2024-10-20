@@ -41,6 +41,8 @@ class AppIntegers {
   static const int twoHundredAndSeventy = 270;
   static const int threeHundred = 300;
   static const int fourHundred = 400;
+
+  static const int fourHundredAndOne = 401;
   static const int fourHundredAndFour = 404;
   static const int fiveHundred = 500;
   static const int sixHundred = 600;

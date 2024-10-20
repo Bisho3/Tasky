@@ -4,6 +4,7 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
+      ///======== onBoarding ========///
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
             builder: (context) => const OnBoardingScreen());
@@ -14,12 +15,20 @@ class AppRouter {
         final int typeMap = data[KeyRouter.typeMapInMapScreenKey];
         return MaterialPageRoute(
             builder: (context) => MapScreen(typeMap: typeMap));*/
+    ///======== authentication ========///
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (context) => const LoginScreen());
 
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (context) => RegisterScreen());
+///======== home ========///
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (context) => HomeScreen());
 
+
+    ///======= profile ========///
+      case Routes.profileScreen:
+        return MaterialPageRoute(builder: (context) => ProfileScreen());
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(

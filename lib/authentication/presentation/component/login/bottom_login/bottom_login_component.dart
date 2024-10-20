@@ -19,13 +19,18 @@ class BottomLoginComponent extends StatelessWidget {
       listenWhen: (previous, current) =>
           previous.loginState != current.loginState,
       listener: (context, state) async {
-        // TODO: implement listener
         if (state.loginState == BottomState.success) {
           await CacheHelper.saveSecureData(
               value: state.login.token, key: KeyConstance.token);
           AppConstance.token =
               await CacheHelper.getSecureData(key: KeyConstance.token);
-          // context.pushAndRemoveUntil(routeName: Routes.bottomNavBarScreen);
+
+
+          await CacheHelper.saveSecureData(
+              value: state.login.refreshToken, key: KeyConstance.refreshToken);
+          AppConstance.refreshToken =
+          await CacheHelper.getSecureData(key: KeyConstance.refreshToken);
+          context.pushAndRemoveUntil(routeName: Routes.homeScreen);
         }
       },
       builder: (context, state) {

@@ -21,11 +21,14 @@ class AuthState extends Equatable {
   final String registerFailureMessage;
   final BottomState registerState;
 
+  final BottomState logoutState;
+  final String logoutFailureMessage;
+
   const AuthState({
     this.countryCode = "",
     this.isPasswordObscureLogin = true,
     this.suffixIconForPasswordLogin = Icons.visibility_outlined,
-    this.login = const Login(token: ""),
+    this.login = const Login(token: "", refreshToken: ""),
     this.loginFailureMessage = "",
     this.loginState = BottomState.isInitial,
     this.experienceLevel = const [
@@ -43,6 +46,8 @@ class AuthState extends Equatable {
     this.suffixIconForPasswordRegister = Icons.visibility_outlined,
     this.registerFailureMessage = "",
     this.registerState = BottomState.isInitial,
+    this.logoutState = BottomState.isInitial,
+    this.logoutFailureMessage = "",
   });
 
   AuthState copyWith({
@@ -58,6 +63,8 @@ class AuthState extends Equatable {
     IconData? suffixIconForPasswordRegister,
     BottomState? registerState,
     String? registerFailureMessage,
+    BottomState? logoutState,
+    String? logoutFailureMessage,
   }) {
     return AuthState(
       countryCode: countryCode ?? this.countryCode,
@@ -78,6 +85,8 @@ class AuthState extends Equatable {
       registerState: registerState ?? this.registerState,
       registerFailureMessage:
           registerFailureMessage ?? this.registerFailureMessage,
+      logoutState: logoutState ?? this.logoutState,
+      logoutFailureMessage: logoutFailureMessage ?? this.logoutFailureMessage,
     );
   }
 
@@ -95,5 +104,7 @@ class AuthState extends Equatable {
         suffixIconForPasswordRegister,
         registerState,
         registerFailureMessage,
+        logoutState,
+        logoutFailureMessage
       ];
 }

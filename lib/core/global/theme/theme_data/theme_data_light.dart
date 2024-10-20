@@ -65,17 +65,16 @@ TextTheme _getTextTheme() => TextTheme(
       //     color: AppColors.blackColor,
       //     fontWeight: FontWeight.w700),
 
-      // titleMedium: TextStyle(
-      //   fontSize: AppDouble.fourteen.sp,
-      //   fontWeight: FontWeight.w600,
-      //   color: AppColors.blackColor,
-      //   height: AppDouble.onePointThree,
-      // ),
-      // titleSmall: TextStyle(
-      //   fontSize: AppDouble.twelve.sp,
-      //   fontWeight: FontWeight.w400,
-      //   color: AppColors.blackColor,
-      // ),
+      titleMedium: TextStyle(
+        fontSize: AppDouble.eighteen.sp,
+        fontWeight: FontWeight.w700,
+        color: AppColors.darkGreyColor,
+      ),
+      titleSmall: TextStyle(
+        fontSize: AppDouble.twelve.sp,
+        fontWeight: FontWeight.w500,
+        color: AppColors.darkGreyColor,
+      ),
       // displaySmall: TextStyle(
       //   fontSize: AppDouble.seven.sp,
       //   fontWeight: FontWeight.w700,
@@ -164,7 +163,7 @@ SwitchThemeData _getSwitchTheme() => SwitchThemeData(
       trackColor:
           MaterialStateProperty.resolveWith((Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return AppColors.lightGreyColor;
+          return AppColors.veryLightGreyColor;
         }
         if (states.contains(MaterialState.disabled)) {
           return AppColors.foreignLightColor;

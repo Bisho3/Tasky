@@ -27,10 +27,29 @@ class DioHelper {
   }) async {
     dio.options.headers["Authorization"] = "Bearer $token";
     dio.options.headers["Accept"] = "application/json";
-    return await dio.get(
-      url,
-      queryParameters: query,
-    );
+
+    try {
+      return await dio.get(
+        url,
+        queryParameters: query,
+      );
+    } on DioException catch (e) {
+      if (AppConstance.token != null &&
+          e.response?.statusCode == AppIntegers.fourHundredAndOne) {
+        bool isTokenRefreshed = await refreshToken();
+        if (isTokenRefreshed) {
+          dio.options.headers["Authorization"] = "Bearer ${AppConstance.token}";
+          return await dio.get(
+            url,
+            queryParameters: query,
+          );
+        } else {
+          rethrow;
+        }
+      } else {
+        rethrow;
+      }
+    }
   }
 
   static Future<Response> postData({
@@ -46,11 +65,30 @@ class DioHelper {
     dio.options.headers["Content-Type"] = wantBearer == true
         ? "application/json"
         : "application/x-www-form-urlencoded";
-    return await dio.post(
-      url,
-      queryParameters: query,
-      data: data,
-    );
+
+    try {
+      return await dio.post(
+        url,
+        queryParameters: query,
+        data: data,
+      );
+    } on DioException catch (e) {
+      if (AppConstance.token != null &&
+          e.response?.statusCode == AppIntegers.fourHundredAndOne) {
+        bool isTokenRefreshed = await refreshToken();
+        if (isTokenRefreshed) {
+          dio.options.headers["Authorization"] = "Bearer ${AppConstance.token}";
+          return await dio.get(
+            url,
+            queryParameters: query,
+          );
+        } else {
+          rethrow;
+        }
+      } else {
+        rethrow;
+      }
+    }
   }
 
   static Future<Response> putData({
