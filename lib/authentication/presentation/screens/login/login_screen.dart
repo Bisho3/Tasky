@@ -5,8 +5,19 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ,
+    return BlocProvider(
+      create: (context) => sl<AuthCubit>(),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              Image.asset(AppImages.enterTasksImage),
+              BodyLoginComponent(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

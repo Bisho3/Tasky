@@ -5,7 +5,8 @@ class AppRouter {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.onBoardingScreen:
-        return MaterialPageRoute(builder: (context) => const OnBoardingScreen());
+        return MaterialPageRoute(
+            builder: (context) => const OnBoardingScreen());
 
 /*      ///======== authentication ========///
       case Routes.mapScreen:
@@ -14,9 +15,10 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => MapScreen(typeMap: typeMap));*/
       case Routes.loginScreen:
-        return MaterialPageRoute(
-            builder: (context) => const LoginScreen(
-                ));
+        return MaterialPageRoute(builder: (context) => const LoginScreen());
+
+      case Routes.registerScreen:
+        return MaterialPageRoute(builder: (context) => RegisterScreen());
 
       default:
         return MaterialPageRoute(

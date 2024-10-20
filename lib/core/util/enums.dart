@@ -18,6 +18,10 @@ enum BottomState {
   failure,
 }
 
+enum ToggleStates {
+  isStarted,
+  isSelected,
+}
 
 
 

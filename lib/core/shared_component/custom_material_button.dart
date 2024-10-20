@@ -17,7 +17,7 @@ class CustomMaterialButton extends StatelessWidget {
       required this.function,
       required this.text,
       this.width = double.infinity,
-      this.radius = 30,
+      this.radius = 12,
       this.lightModeTextColor = AppColors.foreignLightColor,
       this.lightModeMaterialColor = AppColors.primaryColor,
       this.loading = false,
@@ -35,10 +35,9 @@ class CustomMaterialButton extends StatelessWidget {
             radius!,
           ),
           border: Border.all(
-            color:
-                borderColorSameMaterial == false
-                    ? AppColors.primaryColor
-                    : lightModeMaterialColor,
+            color: borderColorSameMaterial == false
+                ? AppColors.primaryColor
+                : lightModeMaterialColor,
           )),
       child: MaterialButton(
         onPressed: loading
@@ -53,12 +52,10 @@ class CustomMaterialButton extends StatelessWidget {
                     size: 1.sw < 600 ? 0.04.sh : 0.06.sh),
               )
             : Text(text.toString(),
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color:  lightModeTextColor,
-                    fontSize: fontSize.sp,
-                    fontWeight: wantWeight400 == false
-                        ? FontWeight.w700
-                        : FontWeight.w400)),
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: lightModeTextColor,
+                      fontSize: fontSize.sp,
+                    )),
       ),
     );
   }

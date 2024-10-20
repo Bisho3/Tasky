@@ -56,6 +56,10 @@ TextTheme _getTextTheme() => TextTheme(
         fontWeight: FontWeight.w400,
         color: AppColors.darkGreyColor,
       ),
+      titleLarge: TextStyle(
+          fontSize: AppDouble.sixteen.sp,
+          color: AppColors.blackColor,
+          fontWeight: FontWeight.w700),
       // labelSmall: TextStyle(
       //     fontSize: AppDouble.ten.sp,
       //     color: AppColors.blackColor,
@@ -92,30 +96,36 @@ InputDecorationTheme _getInputDecorationTheme() => InputDecorationTheme(
       ),
       labelStyle: TextStyle(
         fontSize: AppDouble.ten.sp,
-        color: AppColors.blackColor.withOpacity(AppDouble.zeroPointFive),
+        color: AppColors.greyColor,
       ),
       hintStyle: TextStyle(
         fontSize: AppDouble.ten.sp,
-        color: AppColors.blackColor.withOpacity(AppDouble.zeroPointFive),
+        color: AppColors.greyColor,
       ),
       errorStyle: TextStyle(
         fontSize: AppDouble.twelve.sp,
         color: AppColors.redColor,
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: AppColors.transparentColor),
-        borderRadius: BorderRadius.circular(AppDouble.zero),
+        borderSide: const BorderSide(color: AppColors.primaryColor),
+        borderRadius: BorderRadius.circular(AppDouble.twelve),
       ),
-/*      border: OutlineInputBorder(
+      border: OutlineInputBorder(
           borderSide: const BorderSide(color: AppColors.redColor),
-
-          borderRadius: BorderRadius.circular(AppDouble.eight)),*/
-      /*    enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: AppColors.blackColor),
-        borderRadius: BorderRadius.circular(AppDouble.eight),
-      ),*/
-      border: InputBorder.none,
-      fillColor: AppColors.foreignLightColor,
+          borderRadius: BorderRadius.circular(AppDouble.twelve)),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.greyColor),
+        borderRadius: BorderRadius.circular(AppDouble.twelve),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.redColor),
+        borderRadius: BorderRadius.circular(AppDouble.twelve),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: AppColors.redColor),
+        borderRadius: BorderRadius.circular(AppDouble.twelve),
+      ),
+      fillColor: AppColors.transparentColor,
       filled: true,
     );
 

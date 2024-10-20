@@ -4,14 +4,9 @@ class CustomBack extends StatelessWidget {
   const CustomBack({
     super.key,
     this.whenBack,
-    this.lightModeColor = AppColors.primaryColor,
-    this.icon = Icons.arrow_back_ios,
   });
 
   final Function? whenBack;
-  final Color lightModeColor;
-
-  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +17,14 @@ class CustomBack extends StatelessWidget {
         }
         context.pop();
       },
-      child: Icon(
-        icon,
-        size: AppDouble.twentyTwo.w,
-        color:  lightModeColor,
+      child: Row(
+        children: [
+          horizontalSpace(AppDouble.ten.w),
+          SvgPicture.asset(
+            AppIcons.backIcon,
+            height: AppDouble.fifteen.h,
+          ),
+        ],
       ),
     );
   }

@@ -41,30 +41,11 @@ class DioHelper {
     token,
   }) async {
     dio.options.headers["Authorization"] =
-    wantBearer == true ? "Bearer $token" : "Basic $token";
+        wantBearer == true ? "Bearer $token" : "Basic $token";
     dio.options.headers["Accept"] = "application/json";
     dio.options.headers["Content-Type"] = wantBearer == true
         ? "application/json"
         : "application/x-www-form-urlencoded";
-    return await dio.post(
-      url,
-      queryParameters: query,
-      data: data,
-    );
-  }
-
-  static Future<Response> postFawryData({
-    required String url,
-    Map<String, dynamic>? query,
-    dynamic data,
-    token,
-  }) async {
-    dio.options.headers["Authorization"] = "$token";
-    dio.options.headers["Accept"] = "application/json";
-    dio.options.headers["Content-Type"] = "application/json";
-    dio.options.headers["Accept-Encoding"] = "gzip, deflate, br";
-    dio.options.headers["Connection"] = "keep-alive";
-
     return await dio.post(
       url,
       queryParameters: query,
