@@ -7,4 +7,6 @@ class AppIcons {
   static const String scanIcon = "lib/core/global/icons/scan.svg";
   static const String addImageIcon = "lib/core/global/icons/add_image.svg";
   static const String priorityIcon = "lib/core/global/icons/priority.svg";
+  static const String calendarIcon = "lib/core/global/icons/calendar.svg";
+
 }

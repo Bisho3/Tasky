@@ -60,14 +60,24 @@ class AppStrings {
   static const String taskDescription = "Task Description";
   static const String enterDescriptionHere = "Enter description here...";
   static const String mustEnterTaskDescription = "Must enter task description";
-static const String mediumPriority = "Medium Priority";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
-// static const String successfullySignOut = "Successfully Sign Out";
+  static const String mediumPriority = "Medium Priority";
+  static const String mustChooseMediumPriority = "Must choose medium priority";
+  static const String dueDate = "Due date";
+  static const String chooseDueDate = "choose due date...";
+  static const String mustChooseDueDate = "Must choose due date";
+  static const String addTask = "Add Task";
+  static const String taskHasBeenAddedSuccessfully =
+      "Task has been added successfully";
+  static const String low = "Low";
+  static const String medium = "Medium";
+  static const String high = "High";
+  static const String noTasks = "No Tasks";
+  static const String edit = "Edit";
+  static const String delete = "Delete";
+  static const String taskDetails = "Task Details";
+  static const String endDate = "End Date";
+  static const String scanTask = "Scan Task";
+  static const String deleteTask = "Delete Task";
+  static const String areYouSureYouWantToDelete =
+      "Are you sure you want to delete";
 }

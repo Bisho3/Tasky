@@ -1,9 +1,10 @@
 import 'package:todo/core/util/app_import.dart';
 
 class TaskDescriptionFieldComponent extends StatelessWidget {
-  const TaskDescriptionFieldComponent({super.key, required this.taskDescriptionController});
+  const TaskDescriptionFieldComponent(
+      {super.key, required this.taskDescriptionController});
 
-  final TextEditingController taskDescriptionController ;
+  final TextEditingController taskDescriptionController;
 
   @override
   Widget build(BuildContext context) {

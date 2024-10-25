@@ -54,10 +54,6 @@ class AppDouble {
   static const double oneHundredAndTen = 110.0;
   static const double oneHundredAndFifteen = 115.0;
   static const double oneHundredAndTwenty = 120.0;
-  static const double oneHundredAndForty = 140.0;
-  static const double oneHundredAndThirty = 130.0;
-  static const double oneHundredAndFifty = 150.0;
-  static const double oneHundredAndSixty = 160.0;
   static const double oneHundredAndEighty = 180.0;
   static const double oneHundredAndNinety = 190.0;
   static const double twoHundred = 200.0;

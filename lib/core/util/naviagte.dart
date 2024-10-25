@@ -13,8 +13,7 @@ extension Navigate on BuildContext {
   }
 
   Future<dynamic> pushAndRemoveUntil(
-      {required String routeName,
-      Object? arguments}) {
+      {required String routeName, Object? arguments}) {
     return Navigator.of(this, rootNavigator: true).pushNamedAndRemoveUntil(
         routeName, (route) => false,
         arguments: arguments);

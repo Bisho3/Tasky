@@ -10,6 +10,8 @@ class Routes {
   static const String homeScreen = '/homeScreen';
   static const String addTaskScreen = '/addTaskScreen';
   static const String editTaskScreen = '/editTaskScreen';
+  static const String taskDetailsScreen = '/taskDetailsScreen';
+  static const String scanTaskScreen = '/scanTaskScreen';
 
   ///======= profile ========///
   static const String profileScreen = '/profileScreen';

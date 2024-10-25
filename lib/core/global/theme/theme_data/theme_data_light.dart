@@ -41,52 +41,50 @@ AppBarTheme _getAppBarTheme() => AppBarTheme(
     );
 
 TextTheme _getTextTheme() => TextTheme(
-      bodyLarge: TextStyle(
-        fontSize: AppDouble.twentyFour.sp,
-        fontWeight: FontWeight.w700,
+    bodyLarge: TextStyle(
+      fontSize: AppDouble.twentyFour.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColors.blackColor,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: AppDouble.eighteen.sp,
+      color: AppColors.foreignLightColor,
+      fontWeight: FontWeight.w700,
+    ),
+    bodySmall: TextStyle(
+      fontSize: AppDouble.fourteen.sp,
+      fontWeight: FontWeight.w400,
+      color: AppColors.darkGreyColor,
+    ),
+    titleLarge: TextStyle(
+        fontSize: AppDouble.sixteen.sp,
         color: AppColors.blackColor,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: AppDouble.eighteen.sp,
-        color: AppColors.foreignLightColor,
-        fontWeight: FontWeight.w700,
-      ),
-      bodySmall: TextStyle(
-        fontSize: AppDouble.fourteen.sp,
-        fontWeight: FontWeight.w400,
-        color: AppColors.darkGreyColor,
-      ),
-      titleLarge: TextStyle(
-          fontSize: AppDouble.sixteen.sp,
-          color: AppColors.blackColor,
-          fontWeight: FontWeight.w700),
-      // labelSmall: TextStyle(
-      //     fontSize: AppDouble.ten.sp,
-      //     color: AppColors.blackColor,
-      //     fontWeight: FontWeight.w700),
-
-      titleMedium: TextStyle(
-        fontSize: AppDouble.eighteen.sp,
-        fontWeight: FontWeight.w700,
-        color: AppColors.darkGreyColor,
-      ),
-      titleSmall: TextStyle(
-        fontSize: AppDouble.twelve.sp,
-        fontWeight: FontWeight.w500,
-        color: AppColors.darkGreyColor,
-      ),
-      // displaySmall: TextStyle(
-      //   fontSize: AppDouble.seven.sp,
-      //   fontWeight: FontWeight.w700,
-      //   color: AppColors.blackColor,
-      // ),
-
-      headlineMedium: TextStyle(
-        fontSize: 19.sp,
-        color: AppColors.primaryColor,
-        fontWeight: FontWeight.w500,
-      ),
-    );
+        fontWeight: FontWeight.w700),
+    titleMedium: TextStyle(
+      fontSize: AppDouble.eighteen.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColors.darkGreyColor,
+    ),
+    titleSmall: TextStyle(
+      fontSize: AppDouble.twelve.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.darkGreyColor,
+    ),
+    displaySmall: TextStyle(
+      fontSize: AppDouble.fourteen.sp,
+      fontWeight: FontWeight.w400,
+      color: AppColors.darkGreyColor,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 19.sp,
+      color: AppColors.primaryColor,
+      fontWeight: FontWeight.w500,
+    ),
+    displayMedium: TextStyle(
+      fontSize: AppDouble.sixteen.sp,
+      color: AppColors.darkGreyColor,
+      fontWeight: FontWeight.w400,
+    ));
 
 InputDecorationTheme _getInputDecorationTheme() => InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(

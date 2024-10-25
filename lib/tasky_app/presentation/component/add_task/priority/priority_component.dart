@@ -5,20 +5,26 @@ class PriorityComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropDown(
-      listItems: ["1"],
-      backgroundColor:  AppColors.roseColor,
-      wantFilled:  true,
-      textHint: AppStrings.mediumPriority,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return AppStrings.emptyChooseExperienceLevel;
-        }
+    return BlocBuilder<TaskyCubit, TaskyState>(
+      buildWhen: (previous, current) =>
+          previous.selectedPriority != current.selectedPriority,
+      builder: (context, state) {
+        return CustomDropDown(
+          listItems: state.priority,
+          backgroundColor: AppColors.roseColor,
+          wantFilled: true,
+          textHint: AppStrings.mediumPriority,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return AppStrings.mustChooseMediumPriority;
+            }
 
-        return null;
-      },
-      onChange: (value) {
-        context.read<AuthCubit>().chooseExperienceLevel(experienceLevel: value);
+            return null;
+          },
+          onChange: (value) {
+            context.read<TaskyCubit>().selectedPriority(priority: value);
+          },
+        );
       },
     );
   }

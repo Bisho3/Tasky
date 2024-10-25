@@ -56,15 +56,13 @@ class DioHelper {
     required String url,
     Map<String, dynamic>? query,
     dynamic data,
-    bool wantBearer = true,
+    bool? wantMultiForm = false,
     token,
   }) async {
-    dio.options.headers["Authorization"] =
-        wantBearer == true ? "Bearer $token" : "Basic $token";
+    dio.options.headers["Authorization"] = "Bearer $token";
     dio.options.headers["Accept"] = "application/json";
-    dio.options.headers["Content-Type"] = wantBearer == true
-        ? "application/json"
-        : "application/x-www-form-urlencoded";
+    dio.options.headers["Content-Type"] =
+        wantMultiForm == false ? "application/json" : "multipart/form-data";
 
     try {
       return await dio.post(
@@ -78,9 +76,10 @@ class DioHelper {
         bool isTokenRefreshed = await refreshToken();
         if (isTokenRefreshed) {
           dio.options.headers["Authorization"] = "Bearer ${AppConstance.token}";
-          return await dio.get(
+          return await dio.post(
             url,
             queryParameters: query,
+            data: data,
           );
         } else {
           rethrow;
@@ -114,10 +113,31 @@ class DioHelper {
   }) async {
     dio.options.headers["Authorization"] = "Bearer $token";
     dio.options.headers["Accept"] = "application/json";
-    return await dio.delete(
-      url,
-      queryParameters: query,
-      data: data,
-    );
+
+    try {
+      return await dio.delete(
+        url,
+        queryParameters: query,
+        data: data,
+      );
+    } on DioException catch (e) {
+      if (AppConstance.token != null &&
+          e.response?.statusCode == AppIntegers.fourHundredAndOne) {
+        bool isTokenRefreshed = await refreshToken();
+        if (isTokenRefreshed) {
+          dio.options.headers["Authorization"] = "Bearer ${AppConstance.token}";
+
+          return await dio.delete(
+            url,
+            queryParameters: query,
+            data: data,
+          );
+        } else {
+          rethrow;
+        }
+      } else {
+        rethrow;
+      }
+    }
   }
 }

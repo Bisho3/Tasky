@@ -8,4 +8,22 @@ class AppConstance {
   ///======= language =====///
 
   static const String langEn = "en";
+
+  ///=========== states =======///
+
+  static const waitingState  = "waiting";
+  static const finishedState  = "finished";
+  static const inProgressState  = "inprogress";
+
+  ///======= PRIOORTY =========///
+
+  static const String highPriority = "high";
+  static const String mediumPriority = "medium";
+  static const String lowPriority = "low";
+
+  ///========== base url ====///
+
+  static String baseImageUrl({required String image}) =>
+      "${ApiConstance.baseUrl}/images/$image";
+
 }

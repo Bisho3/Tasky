@@ -10,27 +10,28 @@ class FloatingBottomComponent extends StatelessWidget {
       children: [
         FloatingActionButton(
           onPressed: () {
-            // context.pushNamed(routeName: Routes.addTaskScreen);
+            context.pushNamed(routeName: Routes.scanTaskScreen);
           },
           backgroundColor: AppColors.roseColor,
           shape: const CircleBorder(),
           mini: true,
-          heroTag:  AppIntegers.one,
+          heroTag: AppIntegers.one,
           child: SvgPicture.asset(AppIcons.scanIcon),
         ),
         verticalSpace(AppDouble.ten),
         FloatingActionButton(
           onPressed: () {
-            context.pushNamed(routeName: Routes.addTaskScreen);
+            context.pushNamed(routeName: Routes.addTaskScreen, arguments: {
+              KeyRouter.previousContextInAddTaskScreen: context,
+            });
           },
           backgroundColor: AppColors.primaryColor,
           shape: const CircleBorder(),
-          heroTag:  AppIntegers.two,
+          heroTag: AppIntegers.two,
           child: Icon(
             Icons.add,
             color: AppColors.foreignLightColor,
             size: AppDouble.twentyFive.h,
-
           ),
         ),
       ],

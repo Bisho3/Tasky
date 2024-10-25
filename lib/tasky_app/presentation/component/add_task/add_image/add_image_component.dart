@@ -28,9 +28,9 @@ class AddImageComponent extends StatelessWidget {
               );
             },
             child: DottedBorder(
-              color: state.failureImage == false
-                  ? AppColors.primaryColor
-                  : AppColors.redColor,
+              color: state.failureImage == UploadImageStates.failure
+                  ? AppColors.redColor
+                  : AppColors.primaryColor,
               strokeWidth: 1,
               borderType: BorderType.RRect,
               radius: Radius.circular(AppDouble.eight.h),

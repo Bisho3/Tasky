@@ -18,6 +18,7 @@ class CustomFormField extends StatelessWidget {
   final bool showCountry;
   final bool wantWhiteColor;
   final String? descriptionField;
+  final String? suffixSvg;
 
   const CustomFormField({
     super.key,
@@ -38,6 +39,7 @@ class CustomFormField extends StatelessWidget {
     this.showCountry = false,
     this.wantWhiteColor = false,
     this.descriptionField,
+    this.suffixSvg,
   });
 
   @override
@@ -92,23 +94,39 @@ class CustomFormField extends StatelessWidget {
                       context: context,
                     )
                   : null,
-              suffixIcon: suffixIcon != null
-                  ? IconButton(
-                      icon: Icon(
-                        suffixIcon,
-                        size: 22.w,
-                      ),
-                      onPressed: () {
-                        suffixOnPressed!();
-                      })
-                  : null,
+              suffixIcon: suffixIcon != null || suffixSvg != null
+                  ? suffixIcon != null
+                      ? IconButton(
+                          icon: Icon(
+                            suffixIcon,
+                            size: 22.w,
+                          ),
+                          onPressed: () {
+                            suffixOnPressed!();
+                          },
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            suffixOnPressed!();
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                suffixSvg!,
+                              ),
+                            ],
+                          ),
+                        )
+                  :  null,
             ),
             expands: false,
             minLines: null,
             maxLines: multiline == false ? 1 : 5,
             maxLength: maxLength,
             readOnly: readOnly,
-
           ),
         ),
       ],

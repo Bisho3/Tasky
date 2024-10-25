@@ -1,5 +1,4 @@
 import 'package:todo/core/util/app_import.dart';
-import 'package:todo/tasky_app/presentation/screens/add_task/add_task_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -9,13 +8,6 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
             builder: (context) => const OnBoardingScreen());
-
-/*      ///======== authentication ========///
-      case Routes.mapScreen:
-        final Map<String, dynamic> data = arguments as Map<String, dynamic>;
-        final int typeMap = data[KeyRouter.typeMapInMapScreenKey];
-        return MaterialPageRoute(
-            builder: (context) => MapScreen(typeMap: typeMap));*/
 
       ///======== authentication ========///
       case Routes.loginScreen:
@@ -28,7 +20,26 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
       case Routes.addTaskScreen:
-        return MaterialPageRoute(builder: (context) =>  AddTaskScreen());
+        final Map<String, dynamic> data = arguments as Map<String, dynamic>;
+        final BuildContext previousContext =
+            data[KeyRouter.previousContextInAddTaskScreen];
+        return MaterialPageRoute(
+            builder: (context) => AddTaskScreen(
+                  previousContext: previousContext,
+                ));
+      case Routes.taskDetailsScreen:
+        final Map<String, dynamic> data = arguments as Map<String, dynamic>;
+        final String id = data[KeyRouter.taskIdInTaskDetailsScreen];
+        final BuildContext mainContext =
+            data[KeyRouter.contextInTaskDetailsScreen];
+
+        return MaterialPageRoute(
+            builder: (context) => TaskDetailsScreen(
+                  id: id,
+                  mainContext: mainContext,
+                ));
+      case Routes.scanTaskScreen:
+        return MaterialPageRoute(builder: (context) => const ScanTaskScreen());
 
       ///======= profile ========///
       case Routes.profileScreen:

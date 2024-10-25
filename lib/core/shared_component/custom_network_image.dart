@@ -36,19 +36,17 @@ class CustomNetworkImage extends StatelessWidget {
 
       ///=== is dark baseColor = grey[800]! & hightLightColor = grey[850]! ===///
       placeholder: (context, url) => Skeletonizer(
-        enabled:  true,
+        enabled: true,
         child: Container(
           height: height.h,
           width: width.w,
           decoration: BoxDecoration(
-              color: AppColors.blackColor, borderRadius: border, shape: shape),
+              color: Colors.grey[300], borderRadius: border, shape: shape),
         ),
       ),
-      errorWidget: (context, url, error) => Image.asset(
-        AppImages.enterTasksImage,
-        color: Theme.of(context).primaryColor,
-        height: height.h,
-        width: width.w,
+      errorWidget: (context, url, error) => Icon(
+        Icons.error,
+        size: height.h,
       ),
       height: height.h,
       fit: BoxFit.cover,

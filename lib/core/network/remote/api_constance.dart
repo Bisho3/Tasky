@@ -20,4 +20,17 @@ class ApiConstance {
   ///===== logout =====///
 
   static const String logoutPath = "$baseUrl/auth/logout";
+
+  ///===== add task =====///
+
+  static const String addTaskPath = "$baseUrl/todos";
+
+  ///===== get task details =====///
+
+  static String getTaskDetailsPath({required String id}) =>
+      "$baseUrl/todos/$id";
+
+  ///============ upload image ============///
+
+  static const String uploadImage = "$baseUrl/upload/image";
 }

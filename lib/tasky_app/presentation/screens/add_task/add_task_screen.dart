@@ -1,14 +1,15 @@
 import 'package:todo/core/util/app_import.dart';
-import 'package:todo/tasky_app/presentation/component/add_task/priority/priority_component.dart';
-import 'package:todo/tasky_app/presentation/component/add_task/task_description_field/task_description_field_component.dart';
-import 'package:todo/tasky_app/presentation/component/add_task/task_title_field/task_title_field_component.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  AddTaskScreen({super.key});
+  AddTaskScreen({super.key, required this.previousContext});
 
   final TextEditingController _taskTitleController = TextEditingController();
   final TextEditingController _taskDescriptionController =
       TextEditingController();
+  final TextEditingController _dueDateController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final BuildContext previousContext;
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +19,37 @@ class AddTaskScreen extends StatelessWidget {
         appBar: const AddTaskAppBarComponent(),
         body: SingleChildScrollView(
           padding: EdgeInsetsDirectional.all(AppDouble.fifteen.h),
-          child: Column(
-            children: [
-              const AddImageComponent(),
-              verticalSpace(AppDouble.ten),
-              TaskTitleFieldComponent(
-                taskTitleController: _taskTitleController,
-              ),
-              verticalSpace(AppDouble.ten),
-              TaskDescriptionFieldComponent(
-                taskDescriptionController: _taskDescriptionController,
-              ),
-              verticalSpace(AppDouble.ten),
-              const PriorityComponent(),
-            ],
+          child: Form(
+            key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              children: [
+                const AddImageComponent(),
+                verticalSpace(AppDouble.fifteen),
+                TaskTitleFieldComponent(
+                  taskTitleController: _taskTitleController,
+                ),
+                verticalSpace(AppDouble.fifteen),
+                TaskDescriptionFieldComponent(
+                  taskDescriptionController: _taskDescriptionController,
+                ),
+                verticalSpace(AppDouble.fifteen),
+                const PriorityComponent(),
+                verticalSpace(AppDouble.fifteen),
+                DueDateComponent(
+                  dueDateController: _dueDateController,
+                ),
+                const TextFailureAddTaskComponent(),
+                verticalSpace(AppDouble.twenty),
+                BottomAddTaskComponent(
+                  formKey: _formKey,
+                  dueDateController: _dueDateController,
+                  taskDescriptionController: _taskDescriptionController,
+                  taskTitleController: _taskTitleController,
+                  previousContext: previousContext,
+                ),
+              ],
+            ),
           ),
         ),
       ),

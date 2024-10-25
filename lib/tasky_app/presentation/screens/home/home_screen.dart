@@ -1,6 +1,4 @@
 import 'package:todo/core/util/app_import.dart';
-import 'package:todo/tasky_app/presentation/component/home/app_bar/home_app_bar_component.dart';
-import 'package:todo/tasky_app/presentation/component/home/floating_bottom/floating_bottom_component.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,10 +7,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        appBar: HomeAppBarComponent(),
-        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-        floatingActionButton: FloatingBottomComponent(),
+      child: BlocProvider(
+        create: (context) => sl<TaskyCubit>()..getTask(),
+        child: Scaffold(
+          appBar: const HomeAppBarComponent(),
+          body: Padding(
+            padding: EdgeInsetsDirectional.all(AppDouble.twenty.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppStrings.myTasks,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: AppColors.darkGreyColor,
+                      ),
+                ),
+                verticalSpace(AppDouble.fifteen),
+                const ListHeaderProgressComponent(),
+                verticalSpace(AppDouble.twenty),
+                ListTasksComponent(),
+              ],
+            ),
+          ),
+          floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+          floatingActionButton: const FloatingBottomComponent(),
+        ),
       ),
     );
   }

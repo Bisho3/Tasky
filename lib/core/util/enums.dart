@@ -4,7 +4,6 @@ enum RequestState {
   failure,
 }
 
-
 enum ToastStates {
   success,
   error,
@@ -23,6 +22,20 @@ enum ToggleStates {
   isSelected,
 }
 
+enum UploadImageStates {
+  isInitial,
+  success,
+  failure,
+}
 
+enum TaskStates {
+  inProgress,
+  waiting,
+  finished,
+}
 
-
+enum PriorityStates {
+  low,
+  medium,
+  high,
+}
